@@ -18,6 +18,9 @@ import org.springframework.messaging.MessageHandler;
 
 import java.io.File;
 
+/**
+ * <a href="https://www.baeldung.com/spring-integration">link per Bealdung</a>
+ */
 @Slf4j
 @Configuration
 @EnableIntegration
