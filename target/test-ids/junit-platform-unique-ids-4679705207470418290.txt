@@ -1,0 +1,1 @@
+[engine:junit-jupiter]/[class:com.js.spring_batch_integration.SpringBatchIntegrationApplicationTests]/[method:contextLoads()]
