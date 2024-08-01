@@ -13,6 +13,7 @@ import org.springframework.integration.file.FileReadingMessageSource;
 import org.springframework.integration.file.FileWritingMessageHandler;
 import org.springframework.integration.file.filters.SimplePatternFileListFilter;
 import org.springframework.integration.file.support.FileExistsMode;
+import org.springframework.integration.router.PayloadTypeRouter;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.MessageHandler;
 
@@ -58,5 +59,16 @@ public class BasicIntegrationConfig {
             log.info("delete:[{}]", isDelete);
         };
 
+    }
+
+
+    /* Esempio con router basato sul contenuto */
+    @ServiceActivator(inputChannel = "routingChannel")
+    @Bean
+    public PayloadTypeRouter router() {
+        PayloadTypeRouter router = new PayloadTypeRouter();
+        router.setChannelMapping(String.class.getName(), "stringChannel");
+        router.setChannelMapping(Integer.class.getName(), "integerChannel");
+        return router;
     }
 }
